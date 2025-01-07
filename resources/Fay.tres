@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Companion" load_steps=2 format=3 uid="uid://bsa66cmx8ttcr"]
+
+[ext_resource type="Script" path="res://scripts/Companion.gd" id="1_yg3f3"]
+
+[resource]
+script = ExtResource("1_yg3f3")
+name = ""
+nickname = ""
+race = "Fox Humanoid"
+background = ""
+available_backgrounds = Array[String]([])

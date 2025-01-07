@@ -25,19 +25,9 @@ buses/default_bus_layout=""
 
 [autoload]
 
-AppSettings="*res://addons/rakugo_game_template/Autoloads/AppSettings.gd"
-SceneLoader="*res://addons/rakugo_game_template/Autoloads/SceneLoader.gd"
-ProjectMusicController="*res://addons/rakugo_game_template/Autoloads/ProjectMusicController.tscn"
-UISoundManager="*res://addons/rakugo_game_template/Autoloads/UISoundManager/UISoundManager.tscn"
-Transitions="*res://addons/rakugo_game_template/Autoloads/Transitions/transitions.tscn"
-GameValues="*res://scripts/autoloads/game_values.gd"
-CompanionValues="*res://scripts/autoloads/companion_values.gd"
 SceneManager="*res://scripts/autoloads/scene_manager.gd"
-State="*res://scripts/autoloads/state.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 QuestManager="*res://scripts/autoloads/quest_manager.gd"
-GameFunctions="*res://scripts/autoloads/game_functions.gd"
-Calendar="*res://scripts/autoloads/calendar.gd"
 
 [display]
 
