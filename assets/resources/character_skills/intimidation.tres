@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CharacterSkill" load_steps=2 format=3 uid="uid://dkvo2g1i14ktl"]
+
+[ext_resource type="Script" path="res://scripts/character_skill.gd" id="1_kyvad"]
+
+[resource]
+script = ExtResource("1_kyvad")
+skill_name = "Intimidation"
+value = 0
+description = "The ability to influence through force or threat, or even avoid fights with intelligent and unintelligent beings."

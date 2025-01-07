@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CharacterSkill" load_steps=2 format=3 uid="uid://u56vbxd1lvgj"]
+
+[ext_resource type="Script" path="res://scripts/character_skill.gd" id="1_8ohx3"]
+
+[resource]
+script = ExtResource("1_8ohx3")
+skill_name = "Combat"
+value = 0
+description = "The ability to fight and defend themselves."

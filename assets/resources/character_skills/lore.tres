@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CharacterSkill" load_steps=2 format=3 uid="uid://b283bxgfdj4ef"]
+
+[ext_resource type="Script" path="res://scripts/character_skill.gd" id="1_gj6vx"]
+
+[resource]
+script = ExtResource("1_gj6vx")
+skill_name = "Lore"
+value = 0
+description = "The knowledge about local or known facts, important people, items or locations. Knows the best places, or identifies items."

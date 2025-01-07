@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://djytf238sd0cn"]
+
+[ext_resource type="Texture2D" uid="uid://crnht5bgnx1ok" path="res://assets/ui/scale_03_01.png" id="2_krns7"]
+[ext_resource type="Texture2D" uid="uid://cje8vpbmoug37" path="res://assets/ui/scale_03_01_pressed.png" id="3_fjl8w"]
+[ext_resource type="Script" path="res://scripts/portrait_frame.gd" id="3_sbkp8"]
+[ext_resource type="Shader" path="res://shaders/circular.gdshader" id="4_e46ft"]
+[ext_resource type="Texture2D" uid="uid://bmilf6w8xdun5" path="res://assets/ui/scale_03_01_hover.png" id="4_mux1i"]
+[ext_resource type="Texture2D" uid="uid://8b563korty78" path="res://assets/ui/scale_03_01_disabled.png" id="5_rem24"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xs3gn"]
+shader = ExtResource("4_e46ft")
+shader_parameter/radius = 0.6
+shader_parameter/center = Vector2(0.5, 0.5)
+
+[node name="PortraitFrame" type="TextureButton"]
+z_index = 99
+offset_left = 1067.0
+offset_top = 9.0
+offset_right = 1263.0
+offset_bottom = 205.0
+scale = Vector2(0.5, 0.5)
+toggle_mode = true
+texture_normal = ExtResource("2_krns7")
+texture_pressed = ExtResource("3_fjl8w")
+texture_hover = ExtResource("4_mux1i")
+texture_disabled = ExtResource("5_rem24")
+script = ExtResource("3_sbkp8")
+
+[node name="Portrait" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_xs3gn")
+layout_mode = 0
+offset_left = 18.0
+offset_top = 18.0
+offset_right = 1810.0
+offset_bottom = 1810.0
+scale = Vector2(0.09, 0.09)
+flip_h = true
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

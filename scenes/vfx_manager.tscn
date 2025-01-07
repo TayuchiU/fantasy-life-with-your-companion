@@ -1,0 +1,85 @@
+[gd_scene load_steps=7 format=3 uid="uid://wnyrkoj1t5sm"]
+
+[ext_resource type="Script" path="res://scripts/vfx_manager.gd" id="1_cyjmu"]
+
+[sub_resource type="Animation" id="Animation_micrf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VFXManager/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_s3n7x"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VFXManager/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5a5yw"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VFXManager/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0tdkt"]
+resource_name = "fade_out_in"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VFXManager/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_klcyg"]
+_data = {
+"RESET": SubResource("Animation_micrf"),
+"fade_in": SubResource("Animation_s3n7x"),
+"fade_out": SubResource("Animation_5a5yw"),
+"fade_out_in": SubResource("Animation_0tdkt")
+}
+
+[node name="VFXManager" type="AnimationPlayer"]
+libraries = {
+"": SubResource("AnimationLibrary_klcyg")
+}
+autoplay = "RESET"
+script = ExtResource("1_cyjmu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1484.0
+offset_bottom = 888.0
+mouse_filter = 2
+color = Color(1, 1, 1, 0)

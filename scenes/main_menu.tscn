@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://b48xiyit7kqwh"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_rjqx4"]
+[ext_resource type="PackedScene" uid="uid://bsn3esuf8i0xr" path="res://scenes/objects/vfx_manager.tscn" id="2_sv7mg"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_rjqx4")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(574, 331)
+
+[node name="Play" type="Button" parent="Camera2D"]
+offset_left = -126.0
+offset_top = -55.0
+offset_right = 128.0
+offset_bottom = 50.0
+text = "PLAY"
+
+[node name="Transition" parent="." instance=ExtResource("2_sv7mg")]
+
+[connection signal="pressed" from="Camera2D/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Camera2D/Play" to="." method="_on_button_pressed"]
+[connection signal="animation_finished" from="Transition" to="." method="_on_transition_animation_finished"]

@@ -1,0 +1,56 @@
+~ this_is_a_node_title
+
+Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
+Nathan: Here are some choices.
+- First one
+	Nathan: You picked the first one.
+- Second one
+	Nathan: You picked the second one.
+- Start again => this_is_a_node_title
+- End the conversation => END
+Nathan: For more information see the online documentation.
+
+=> END
+
+~ bedroom_bed
+if State.action == "bed":
+	{{State.player_name}}: Looking at my bed.
+{{State.player_name}}: Ah... I'm tired.
+{{State.player_name}}: Should I sleep?
+- Sleep
+	{{State.player_name}}: Yeah, let's sleep for now.
+	do GameFunctions.safe_sleep()
+- Not now
+	{{State.player_name}}: Maybe later.
+=> END
+
+
+~ bedroom_awake
+(There's now {{GameValues.calendar}} days after the start of the game!)
+=> END
+
+
+~ bedroom_wardrobe
+Outfits are not implemented yet...
+=> END
+
+~ bedroom_companion
+{{CompanionValues.companion_name}}: [[Hi|Hello|Hey]]!
+- Send to work
+	{{State.player_name}}: Are you going to go on a quest?
+	{{CompanionValues.companion_name}}: Yes, sir!
+	do QuestManager.load_quest("res://mods/quests/lost_relic.json")
+	
+=> END
+
+~ office_desk
+if State.action == "work":
+	{{player_name}}: Looking at my desk. Yeah, ok I gotta work.
+{{player_name}}: Another long day at work ahead of me...
+- Focus
+	{{player_name}}: Let's get this over with.
+	do times_worked_total += 1
+	(I've worked {{times_worked_total}} times!)
+- Relax
+	{{player_name}}: Damn, so much stuff to do... I'll take a small break.
+=> END

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CharacterSkill" load_steps=2 format=3 uid="uid://rux8jc5wev7u"]
+
+[ext_resource type="Script" path="res://scripts/character_skill.gd" id="1_ucxjd"]
+
+[resource]
+script = ExtResource("1_ucxjd")
+skill_name = "Cooking"
+value = 0
+description = "The ability to create good meals, provided the ingredients are available."

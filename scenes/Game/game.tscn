@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=3 uid="uid://d1flo1brh3p4c"]
+
+[ext_resource type="Script" path="res://scenes/Game/game.gd" id="1_o2piy"]
+[ext_resource type="PackedScene" uid="uid://cdwvtbtwmrqbn" path="res://scenes/PauseMenu/PauseMenu.tscn" id="2_hcope"]
+[ext_resource type="PackedScene" uid="uid://cp3p3kqcjh0me" path="res://scenes/EndMenu/EndMenu.tscn" id="3_yfekm"]
+[ext_resource type="PackedScene" uid="uid://d3h32orunyx64" path="res://scenes/adventure_log_panel.tscn" id="4_r75qo"]
+[ext_resource type="Texture2D" uid="uid://cwblivg3pr842" path="res://assets/backgrounds/bedroom.png" id="4_s3yy0"]
+[ext_resource type="PackedScene" uid="uid://csptsm2iey6dy" path="res://scenes/character.tscn" id="5_0437j"]
+[ext_resource type="PackedScene" uid="uid://wnyrkoj1t5sm" path="res://scenes/vfx_manager.tscn" id="5_xj3de"]
+[ext_resource type="PackedScene" uid="uid://dvq0dxglota1w" path="res://scenes/ui.tscn" id="6_8evia"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_o2piy")
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="GUI" instance=ExtResource("2_hcope")]
+unique_name_in_owner = true
+visible = false
+
+[node name="EndMenu" parent="GUI" instance=ExtResource("3_yfekm")]
+unique_name_in_owner = true
+visible = false
+
+[node name="AdventureLogPanel" parent="GUI" instance=ExtResource("4_r75qo")]
+
+[node name="UI" parent="GUI" instance=ExtResource("6_8evia")]
+
+[node name="Black" type="ColorRect" parent="."]
+offset_left = -14.0
+offset_top = -11.0
+offset_right = 1283.0
+offset_bottom = 727.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(574.625, 324)
+scale = Vector2(0.601746, 0.601852)
+texture = ExtResource("4_s3yy0")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 323)
+zoom = Vector2(1.6, 1.6)
+
+[node name="Character" parent="." instance=ExtResource("5_0437j")]
+position = Vector2(330, 357)
+
+[node name="Wardrobe" type="ColorRect" parent="."]
+offset_left = 649.0
+offset_top = 142.0
+offset_right = 875.0
+offset_bottom = 348.0
+color = Color(1, 1, 1, 0)
+
+[node name="Cabinet" type="ColorRect" parent="."]
+offset_left = 898.0
+offset_top = 341.0
+offset_right = 979.0
+offset_bottom = 447.0
+color = Color(1, 1, 1, 0)
+
+[node name="Bed" type="ColorRect" parent="."]
+offset_left = 464.0
+offset_top = 343.0
+offset_right = 848.0
+offset_bottom = 523.0
+color = Color(1, 1, 1, 0)
+
+[node name="VFXManager" parent="." instance=ExtResource("5_xj3de")]
+
+[connection signal="ask_to_save" from="GUI/PauseMenu" to="." method="_on_pause_menu_ask_to_save"]
+[connection signal="gui_input" from="Wardrobe" to="." method="_on_wardrobe_gui_input"]
+[connection signal="gui_input" from="Cabinet" to="." method="_on_bed_gui_input"]
+[connection signal="gui_input" from="Bed" to="." method="_on_bed_gui_input"]
