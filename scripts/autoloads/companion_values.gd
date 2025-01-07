@@ -8,6 +8,7 @@ var personality_stats: Dictionary = {}
 var skills: Dictionary = {}
 var stats: Dictionary = {}
 var adventure_log : String = ""
+var companion_gender = "female"
 
 # Store pronoun mappings
 var pronoun_map = {

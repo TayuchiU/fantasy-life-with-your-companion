@@ -134,7 +134,7 @@ func process_event(event_id: String, player_stats: Dictionary):
 		"event_time": Calendar.get_current_date_simple(),
 		"duration": duration,
 		"event_id": event_id,
-		"description": CompanionValues.replace_placeholders(event["description"]),
+		"description": CompanionValues.replace_placeholders(event["description"], CompanionValues.companion_gender),
 		"roll": player_roll,
 		"result": result["text"]
 	}
