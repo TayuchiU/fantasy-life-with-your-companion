@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dvq0dxglota1w"]
 
 [ext_resource type="PackedScene" uid="uid://bmybdmjtajft6" path="res://scenes/companion_stats_menu.tscn" id="1_lwix1"]
-[ext_resource type="PackedScene" uid="uid://djytf238sd0cn" path="res://scenes/UIObjects/portrait_frame.tscn" id="2_m6rcl"]
+[ext_resource type="PackedScene" uid="uid://djytf238sd0cn" path="res://scenes/portrait_frame.tscn" id="2_m6rcl"]
 [ext_resource type="PackedScene" uid="uid://d130hla3nfcic" path="res://scenes/companion_skills_menu.tscn" id="2_r3gr7"]
 [ext_resource type="Texture2D" uid="uid://coikbc6i0s4vo" path="res://assets/ui/01_g_02.PNG" id="2_ylh60"]
 [ext_resource type="Texture2D" uid="uid://bggbjxghj0tvs" path="res://assets/ui/heart.png" id="3_7se0l"]
