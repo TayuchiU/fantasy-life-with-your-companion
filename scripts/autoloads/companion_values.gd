@@ -55,7 +55,11 @@ func initialize_stats():
 
 
 func add_personality_stat(stat_name: String, negative: String, positive: String, value: int):
-	var stat = PersonalityStat.new(stat_name, negative, positive, value)
+	var stat = PersonalityStat.new()
+	stat.stat_name = stat_name
+	stat.extreme_1 = negative
+	stat.extreme_2 = positive
+	stat.value = value
 	personality_stats[stat_name] = stat
 
 

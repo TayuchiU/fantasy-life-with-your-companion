@@ -13,13 +13,11 @@ Nathan: For more information see the online documentation.
 => END
 
 ~ bedroom_bed
-if State.action == "bed":
-	{{Globals.player}}: Looking at my bed.
 {{Globals.player}}: Ah... I'm tired.
 {{Globals.player}}: Should I sleep?
 - Sleep
 	{{Globals.player}}: Yeah, let's sleep for now.
-	do GameFunctions.safe_sleep()
+	do pass #GameFunctions.safe_sleep()
 - Not now
 	{{Globals.player}}: Maybe later.
 => END
