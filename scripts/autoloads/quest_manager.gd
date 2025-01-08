@@ -81,14 +81,14 @@ func advance_quest():
 			#quest done
 			is_complete = true
 		else:
-			process_event(next_req_event["id"], CompanionValues.stats)
+			process_event(next_req_event["id"], Globals.companion.stats)
 	else:
 		current_intermission += 1
 		var event = current_optional_events.pick_random()
 		if event == null:
 			print("Event not found")
 			return
-		process_event(event["id"], CompanionValues.stats)
+		process_event(event["id"], Globals.companion.stats)
 
 
 func process_event(event_id: String, player_stats: Dictionary):
@@ -109,12 +109,14 @@ func process_event(event_id: String, player_stats: Dictionary):
 	var result = evaluate_roll(event, player_roll)
 	
 	# Update player stats
-	for stat in result["stat_modifiers"]:
-		player_stats[stat] += result["stat_modifiers"][stat]
+	if result.has("stat_modifiers"):
+		for stat in result["stat_modifiers"]:
+			player_stats[stat] += result["stat_modifiers"][stat]
 	
 	# Update player personality
-	for personality in result["personality_modifiers"]:
-		CompanionValues.modify_personality_stat(personality, result["personality_modifiers"][personality])
+	if result.has("personality_modifiers"):
+		for personality in result["personality_modifiers"]:
+			Globals.companion.modify_personality_stat(personality, result["personality_modifiers"][personality])
 	
 	# Update game time
 	var duration: int = 0
@@ -122,21 +124,21 @@ func process_event(event_id: String, player_stats: Dictionary):
 		if result["duration"] > 0:
 			duration = result["duration"]
 			current_duration += duration
-			Calendar.advance_times(duration)
+			Globals.calendar.advance_times(duration)
 	else:
 		events_without_period_change += 1
 		var random_period_increase_chance = randi_range(events_without_period_change, 10)
 		if random_period_increase_chance >= 9:
-			Calendar.advance_time()
+			Globals.calendar.advance_time()
 			events_without_period_change = 0
 	
 	var event_log = {
-		"event_time": Calendar.get_current_date_simple(),
+		"event_time": Globals.calendar.get_current_date_simple(),
 		"duration": duration,
 		"event_id": event_id,
-		"description": CompanionValues.replace_placeholders(event["description"], CompanionValues.companion_gender),
+		"description": Globals.replace_placeholders(event["description"]),
 		"roll": player_roll,
-		"result": result["text"]
+		"result": Globals.replace_placeholders(result["text"])
 	}
 	# Log result
 	history.append(event_log)
@@ -150,4 +152,4 @@ func get_history() -> Array:
 
 func add_event_log_to_log(event_log):
 	print("QuestManager.add_event_to_log: ", event_log)
-	CompanionValues.add_quest_event_to_log(event_log)
+	Globals.add_quest_event_to_log(event_log)

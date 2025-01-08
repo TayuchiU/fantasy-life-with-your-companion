@@ -1,16 +1,18 @@
-extends Node
+extends Resource
 class_name PersonalityStat
 
-var stat_name : String
-var extreme_1 : String
-var extreme_2 : String
+@export var stat_name : String
+@export var extreme_1 : String
+@export var extreme_2 : String
 
-var value : float
-var min_value = -100.0
-var max_value = 100.0
+var value: int
+var min_value: int = -100
+var max_value: int = 100.0
 
-func _init(n, e1, e2, v) -> void:
-	stat_name = n
-	extreme_1 = e1
-	extreme_2 = e2
-	value = v
+func add(v: int):
+	if value + v >= max_value:
+		value = max_value
+	elif value + v <= min_value:
+		value = min_value
+	else:
+		value += v

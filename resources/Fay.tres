@@ -1,13 +1,22 @@
-[gd_resource type="Resource" script_class="Companion" load_steps=2 format=3 uid="uid://bsa66cmx8ttcr"]
+[gd_resource type="Resource" script_class="Companion" load_steps=4 format=3 uid="uid://bsa66cmx8ttcr"]
 
+[ext_resource type="Script" path="res://scripts/personality_stat.gd" id="1_f26jw"]
 [ext_resource type="Script" path="res://scripts/Companion.gd" id="1_yg3f3"]
+
+[sub_resource type="Resource" id="Resource_hh4fx"]
+resource_local_to_scene = true
+script = ExtResource("1_f26jw")
+stat_name = "morality"
+extreme_1 = "Egoistic"
+extreme_2 = "Altruistic"
 
 [resource]
 script = ExtResource("1_yg3f3")
 name = "Fay"
 nickname = ""
 race = "Fox Humanoid"
-morality = 0
+gender = "Female"
+morality = SubResource("Resource_hh4fx")
 independence = 0
 sociability = 0
 outlook = 0

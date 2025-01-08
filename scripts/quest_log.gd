@@ -8,21 +8,20 @@ extends Panel
 var is_showing: bool = false
 
 func _ready() -> void:
-	CompanionValues.initialize_stats()
 	var string_log: String = "[fill]"
-	string_log += CompanionValues.adventure_log
+	string_log += Globals.adventure_log
 	string_log += "[/fill]"
 	label.text = string_log
-	CompanionValues.adventure_log_changed.connect(on_adventure_log_changed)
+	Globals.adventure_log_changed.connect(on_adventure_log_changed)
 	
 	#Calendar
 	refresh_date_label()
-	Calendar.calendar_changed.connect(_on_calendar_changed)
+	Globals.calendar.calendar_changed.connect(_on_calendar_changed)
 
 
 func on_adventure_log_changed():
 	var string_log: String = "[fill]"
-	string_log += CompanionValues.adventure_log
+	string_log += Globals.adventure_log
 	string_log += "[/fill]"
 	label.text = string_log
 
@@ -39,7 +38,7 @@ func _on_button_pressed() -> void:
 
 
 func _on_advance_time_button_pressed() -> void:
-	Calendar.advance_time()
+	Globals.calendar.advance_time()
 
 
 func _on_calendar_changed() -> void:
@@ -47,4 +46,4 @@ func _on_calendar_changed() -> void:
 
 
 func refresh_date_label():
-	date_label.text = Calendar.get_current_date_string()
+	date_label.text = Globals.calendar.get_current_date_string()

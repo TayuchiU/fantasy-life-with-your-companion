@@ -19,8 +19,6 @@ func load_scenes_from_folder(folder_path: String) -> void:
 					file.close()
 					var json = JSON.new()
 					var result = json.parse(json_data)
-					if GameValues.is_debug:
-						print("File ", file_path, " Result OK? ", result == OK)
 					if result == OK:
 						var parsed_data = json.data
 						var scene_name = parsed_data.get("scene_name", file_name)

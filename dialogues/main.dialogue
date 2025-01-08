@@ -14,19 +14,19 @@ Nathan: For more information see the online documentation.
 
 ~ bedroom_bed
 if State.action == "bed":
-	{{State.player_name}}: Looking at my bed.
-{{State.player_name}}: Ah... I'm tired.
-{{State.player_name}}: Should I sleep?
+	{{Globals.player}}: Looking at my bed.
+{{Globals.player}}: Ah... I'm tired.
+{{Globals.player}}: Should I sleep?
 - Sleep
-	{{State.player_name}}: Yeah, let's sleep for now.
+	{{Globals.player}}: Yeah, let's sleep for now.
 	do GameFunctions.safe_sleep()
 - Not now
-	{{State.player_name}}: Maybe later.
+	{{Globals.player}}: Maybe later.
 => END
 
 
 ~ bedroom_awake
-(There's now {{GameValues.calendar}} days after the start of the game!)
+(Waking up!)
 => END
 
 
@@ -35,10 +35,10 @@ Outfits are not implemented yet...
 => END
 
 ~ bedroom_companion
-{{CompanionValues.companion_name}}: [[Hi|Hello|Hey]]!
+{{Globals.companion.name}}: [[Hi|Hello|Hey]]!
 - Send to work
-	{{State.player_name}}: Are you going to go on a quest?
-	{{CompanionValues.companion_name}}: Yes, sir!
+	{{Globals.player}}: Are you going to go on a quest?
+	{{Globals.companion.name}}: Yes, sir!
 	do QuestManager.load_quest("res://mods/quests/lost_relic.json")
 	
 => END

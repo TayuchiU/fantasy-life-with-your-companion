@@ -9,8 +9,10 @@ class_name Companion extends Resource
 			return name
 @export_enum("Fox Humanoid") var race:String #TODO: Implement Race resource
 
+@export_enum("Male", "Female") var gender: String
+
 @export_group("Personality")
-@export_range(-100, 100) var morality:int
+@export var morality:PersonalityStat
 @export_range(-100, 100) var independence:int
 @export_range(-100, 100) var sociability:int
 @export_range(-100, 100) var outlook:int
@@ -53,6 +55,8 @@ class_name Companion extends Resource
 @export_range(0, 100) var vaginal:int
 @export_range(0, 100) var anal:int
 
+var stats = {"strength": 5, "luck": 5, "gold": 20}
+
 @export_group("Background")
 @export var background:String: #TODO: Implement Background resource
 	set(new_background):
@@ -63,3 +67,26 @@ class_name Companion extends Resource
 			background = new_background
 #Determines what backgrounds the companion is eligible for.
 @export var available_backgrounds:Array[String] #TODO: Change to Array[Background] when implemented
+
+
+##signals
+signal personality_changed
+
+func list_personality_stats() -> Array[PersonalityStat]:
+	return [morality]
+
+
+func get_personality_stat(personality_stat: String):
+	for p in list_personality_stats():
+		if p.stat_name == personality_stat:
+			return p
+	print("personality_stat not found: ", personality_stat)
+	return null
+
+
+func modify_personality_stat(stat: String, value: int):
+	for p in list_personality_stats():
+		if p.stat_name == stat:
+			p.add(value)
+			personality_changed.emit()
+	pass

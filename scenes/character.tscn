@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://csptsm2iey6dy"]
+
+[ext_resource type="Script" path="res://scripts/character.gd" id="1_xedqo"]
+[ext_resource type="Shader" path="res://shaders/highlight_effect.gdshader" id="2_ls5r3"]
+[ext_resource type="Texture2D" uid="uid://b8xd7hjnhvauy" path="res://assets/characters/fay/u_base.png" id="2_w0l2f"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aiwph"]
+shader = ExtResource("2_ls5r3")
+shader_parameter/highlight_color = Vector4(25, 25, 25, 1)
+shader_parameter/highlight_intensity = 0.0
+shader_parameter/glow_size = 1.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_agwen"]
+radius = 132.0
+height = 406.0
+
+[node name="Character" type="Area2D" node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_xedqo")
+sprite = NodePath("Sprite")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 2
+material = SubResource("ShaderMaterial_aiwph")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_w0l2f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_agwen")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

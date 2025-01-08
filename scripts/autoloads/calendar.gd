@@ -1,4 +1,5 @@
 extends Node
+class_name Calendar
 
 # Define the structure for months, days, and periods
 @export var months: Array = []

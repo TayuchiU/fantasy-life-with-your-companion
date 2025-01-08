@@ -6,12 +6,8 @@ class_name Main
 @export var background: Sprite2D
 
 func _ready() -> void:
-	CompanionValues.initialize_stats()
-	print("Personality Stats: ", CompanionValues.personality_stats)
-	
-	
 	SceneManager.load_scenes_from_folder("mods")
-	SceneManager.load_scene(GameValues.initial_scene)
+	SceneManager.load_scene("Bedroom")
 	var scene_data = SceneManager.get_current_scene_data()
 	var bg = scene_data.get("background")
 	change_background(bg)
@@ -32,13 +28,13 @@ func change_background(new_bg : String) -> void:
 
 func _on_wardrobe_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("mouse_left"):
-		State.action = "changing outfit"
+		#State.action = "changing outfit"
 		DialogueManager.show_example_dialogue_balloon(
 			load("res://dialogues/main.dialogue"), "bedroom_wardrobe")
 
 
 func _on_bed_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("mouse_left"):
-		State.action = "bed"
+		#State.action = "bed"
 		DialogueManager.show_example_dialogue_balloon(
 			load("res://dialogues/main.dialogue"), "bedroom_bed")
