@@ -17,7 +17,6 @@ Nathan: For more information see the online documentation.
 {{Globals.player}}: Should I sleep?
 - Sleep
 	{{Globals.player}}: Yeah, let's sleep for now.
-	do pass #GameFunctions.safe_sleep()
 - Not now
 	{{Globals.player}}: Maybe later.
 => END
