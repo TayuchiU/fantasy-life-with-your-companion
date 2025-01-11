@@ -8,20 +8,46 @@ class_name Personality
 		return morality
 	set(value):
 		print("setting morality")
-		morality = value
-@export_range(-100, 100) var independence:int
-@export_range(-100, 100) var sociability:int
-@export_range(-100, 100) var outlook:int
-@export_range(-100, 100) var tradition:int
-@export_range(-100, 100) var sadomasochism:int
-@export_range(-100, 100) var commitment:int
-@export_range(-100, 100) var confidence:int
-@export_range(-100, 100) var spirituality:int
-@export_range(-100, 100) var demeanor:int
-@export_range(-100, 100) var trust:int
-@export_range(-100, 100) var curiosity:int
-@export_range(-100, 100) var honesty:int
-@export_range(-100, 100) var libido:int
+		morality = clamp(morality + value, -100, 100)
+@export_range(-100, 100) var independence:int:
+	set(value):
+		independence = clamp(independence + value, -100, 100)
+@export_range(-100, 100) var sociability:int:
+	set(value):
+		sociability = clamp(sociability + value, -100, 100)
+@export_range(-100, 100) var outlook:int:
+	set(value):
+		outlook = clamp(outlook + value, -100, 100)
+@export_range(-100, 100) var tradition:int:
+	set(value):
+		tradition = clamp(tradition + value, -100, 100)
+@export_range(-100, 100) var sadomasochism:int:
+	set(value):
+		sadomasochism = clamp(sadomasochism + value, -100, 100)
+@export_range(-100, 100) var commitment:int:
+	set(value):
+		commitment = clamp(commitment + value, -100, 100)
+@export_range(-100, 100) var confidence:int:
+	set(value):
+		confidence = clamp(confidence + value, -100, 100)
+@export_range(-100, 100) var spirituality:int:
+	set(value):
+		spirituality = clamp(spirituality + value, -100, 100)
+@export_range(-100, 100) var demeanor:int:
+	set(value):
+		demeanor = clamp(demeanor + value, -100, 100)
+@export_range(-100, 100) var trust:int:
+	set(value):
+		trust = clamp(trust + value, -100, 100)
+@export_range(-100, 100) var curiosity:int:
+	set(value):
+		curiosity = clamp(curiosity + value, -100, 100)
+@export_range(-100, 100) var honesty:int:
+	set(value):
+		honesty = clamp(honesty + value, -100, 100)
+@export_range(-100, 100) var libido:int:
+	set(value):
+		libido = clamp(libido + value, -100, 100)
 
 
 func list_personality_stats() -> Dictionary:

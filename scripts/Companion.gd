@@ -66,7 +66,7 @@ func list_personality_stats():
 
 func modify_personality_stat(stat: String, value: int):
 	if personality.has(stat):
-		personality[stat] = clamp(personality[stat] + value, -100, 100)
+		personality[stat] += value
 		personality_changed.emit()
 	else:
 		print("Error: Invalid personality stat:", stat)
