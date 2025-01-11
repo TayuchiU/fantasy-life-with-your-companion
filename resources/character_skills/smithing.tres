@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="CharacterSkill" load_steps=2 format=3 uid="uid://t3w3qggtk7w1"]
-
-[ext_resource type="Script" path="res://scripts/character_skill.gd" id="1_5ujgu"]
-
-[resource]
-script = ExtResource("1_5ujgu")
-skill_name = "Smithing"
-value = 0
-description = "The ability to work with metal. Craft, melt or repair metal items. Needs appropriate tools and materials."
