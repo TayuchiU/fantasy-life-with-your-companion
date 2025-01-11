@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://jvmv3nm8hjkh"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_xevi6"]
-[ext_resource type="Texture2D" uid="uid://w2sodl3j34k0" path="res://assets/backgrounds/bedroom.png" id="2_kvxgn"]
+[ext_resource type="Texture2D" uid="uid://c1e0onjdcjmfh" path="res://assets/backgrounds/bedroom.png" id="2_kvxgn"]
 [ext_resource type="PackedScene" uid="uid://dvq0dxglota1w" path="res://scenes/ui.tscn" id="2_n5mr5"]
-[ext_resource type="PackedScene" uid="uid://csptsm2iey6dy" path="res://scenes/character.tscn" id="4_q1eti"]
+[ext_resource type="PackedScene" path="res://scenes/character.tscn" id="4_q1eti"]
 [ext_resource type="PackedScene" uid="uid://dw37wr0j4sbop" path="res://scenes/adventure_log_panel.tscn" id="5_dedvo"]
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("ui", "background")]

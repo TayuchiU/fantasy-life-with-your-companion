@@ -13,19 +13,19 @@ class_name Companion extends Resource
 
 @export_group("Personality")
 @export var morality:PersonalityStat
-@export_range(-100, 100) var independence:int
-@export_range(-100, 100) var sociability:int
-@export_range(-100, 100) var outlook:int
-@export_range(-100, 100) var tradition:int
-@export_range(-100, 100) var sadomasochism:int
-@export_range(-100, 100) var commitment:int
-@export_range(-100, 100) var confidence:int
-@export_range(-100, 100) var spirituality:int
-@export_range(-100, 100) var demeanor:int
-@export_range(-100, 100) var trust:int
-@export_range(-100, 100) var curiosity:int
-@export_range(-100, 100) var honesty:int
-@export_range(-100, 100) var libido:int
+@export var independence:PersonalityStat
+@export var sociability:PersonalityStat
+@export var outlook:PersonalityStat
+@export var tradition:PersonalityStat
+@export var sadomasochism:PersonalityStat
+@export var commitment:PersonalityStat
+@export var confidence:PersonalityStat
+@export var spirituality:PersonalityStat
+@export var demeanor:PersonalityStat
+@export var trust:PersonalityStat
+@export var curiosity:PersonalityStat
+@export var honesty:PersonalityStat
+@export var libido:PersonalityStat
 
 @export_group("Skills")
 @export_subgroup("General")
@@ -72,21 +72,36 @@ var stats = {"strength": 5, "luck": 5, "gold": 20}
 ##signals
 signal personality_changed
 
-func list_personality_stats() -> Array[PersonalityStat]:
-	return [morality]
+func list_personality_stats() -> Dictionary:
+	return {
+		"morality": morality,
+		"independence": independence,
+		"sociability": sociability,
+		"outlook": outlook,
+		"tradition": tradition,
+		"sadomasochism": sadomasochism,
+		"commitment": commitment,
+		"confidence": confidence,
+		"spirituality": spirituality,
+		"demeanor": demeanor,
+		"trust": trust,
+		"curiosity": curiosity,
+		"honesty": honesty,
+		"libido": libido
+	}
 
 
-func get_personality_stat(personality_stat: String):
-	for p in list_personality_stats():
-		if p.stat_name == personality_stat:
-			return p
-	print("personality_stat not found: ", personality_stat)
+func get_personality_stat(personality_stat: String) -> PersonalityStat:
+	if list_personality_stats().has(personality_stat):
+		return list_personality_stats().get(personality_stat)
+	else:
+		print("personality_stat not found: ", personality_stat)
 	return null
 
 
 func modify_personality_stat(stat: String, value: int):
-	for p in list_personality_stats():
-		if p.stat_name == stat:
-			p.add(value)
-			personality_changed.emit()
-	pass
+	if list_personality_stats().has(stat):
+		list_personality_stats().get(stat).add(value)
+		personality_changed.emit()
+	else:
+		print("personality_stat not found: ", stat)
