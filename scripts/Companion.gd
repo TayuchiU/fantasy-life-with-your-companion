@@ -12,20 +12,7 @@ class_name Companion extends Resource
 @export_enum("Male", "Female") var gender: String
 
 @export_group("Personality")
-@export var morality:PersonalityStat
-@export var independence:PersonalityStat
-@export var sociability:PersonalityStat
-@export var outlook:PersonalityStat
-@export var tradition:PersonalityStat
-@export var sadomasochism:PersonalityStat
-@export var commitment:PersonalityStat
-@export var confidence:PersonalityStat
-@export var spirituality:PersonalityStat
-@export var demeanor:PersonalityStat
-@export var trust:PersonalityStat
-@export var curiosity:PersonalityStat
-@export var honesty:PersonalityStat
-@export var libido:PersonalityStat
+@export var personality:Personality
 
 @export_group("Skills")
 @export_subgroup("General")
@@ -72,36 +59,14 @@ var stats = {"strength": 5, "luck": 5, "gold": 20}
 ##signals
 signal personality_changed
 
-func list_personality_stats() -> Dictionary:
-	return {
-		"morality": morality,
-		"independence": independence,
-		"sociability": sociability,
-		"outlook": outlook,
-		"tradition": tradition,
-		"sadomasochism": sadomasochism,
-		"commitment": commitment,
-		"confidence": confidence,
-		"spirituality": spirituality,
-		"demeanor": demeanor,
-		"trust": trust,
-		"curiosity": curiosity,
-		"honesty": honesty,
-		"libido": libido
-	}
 
-
-func get_personality_stat(personality_stat: String) -> PersonalityStat:
-	if list_personality_stats().has(personality_stat):
-		return list_personality_stats().get(personality_stat)
-	else:
-		print("personality_stat not found: ", personality_stat)
-	return null
+func list_personality_stats():
+	return personality.list_personality_stats()
 
 
 func modify_personality_stat(stat: String, value: int):
-	if list_personality_stats().has(stat):
-		list_personality_stats().get(stat).add(value)
+	if personality.has(stat):
+		personality[stat] = clamp(personality[stat] + value, -100, 100)
 		personality_changed.emit()
 	else:
-		print("personality_stat not found: ", stat)
+		print("Error: Invalid personality stat:", stat)

@@ -1,106 +1,24 @@
-[gd_resource type="Resource" script_class="Companion" load_steps=17 format=3 uid="uid://bsa66cmx8ttcr"]
+[gd_resource type="Resource" script_class="Companion" load_steps=4 format=3 uid="uid://bsa66cmx8ttcr"]
 
-[ext_resource type="Script" path="res://scripts/personality_stat.gd" id="1_f26jw"]
+[ext_resource type="Script" path="res://scripts/personality.gd" id="1_kpjfw"]
 [ext_resource type="Script" path="res://scripts/Companion.gd" id="1_yg3f3"]
 
-[sub_resource type="Resource" id="Resource_levii"]
-script = ExtResource("1_f26jw")
-stat_name = "commitment"
-extreme_1 = "Fleeting"
-extreme_2 = "Fanaticism"
-value = 0
-
-[sub_resource type="Resource" id="Resource_1lgv2"]
-script = ExtResource("1_f26jw")
-stat_name = "confidence"
-extreme_1 = "Insecurity"
-extreme_2 = "Confidence"
-value = 0
-
-[sub_resource type="Resource" id="Resource_77ceg"]
-script = ExtResource("1_f26jw")
-stat_name = "curiosity"
-extreme_1 = "Apathetic"
-extreme_2 = "Curious"
-value = 0
-
-[sub_resource type="Resource" id="Resource_oufvh"]
-script = ExtResource("1_f26jw")
-stat_name = "demeanor"
-extreme_1 = "Humorous"
-extreme_2 = "Serious"
-value = 0
-
-[sub_resource type="Resource" id="Resource_q2qv8"]
-script = ExtResource("1_f26jw")
-stat_name = "honesty"
-extreme_1 = "Deceptive"
-extreme_2 = "Honest"
-value = 0
-
-[sub_resource type="Resource" id="Resource_6pf71"]
-script = ExtResource("1_f26jw")
-stat_name = "independence"
-extreme_1 = "Obedience"
-extreme_2 = "Autonomy"
-value = 0
-
-[sub_resource type="Resource" id="Resource_7awg8"]
-script = ExtResource("1_f26jw")
-stat_name = "libido"
-extreme_1 = "Frigid"
-extreme_2 = "Hypersexual"
-value = 0
-
-[sub_resource type="Resource" id="Resource_hh4fx"]
-resource_local_to_scene = true
-script = ExtResource("1_f26jw")
-stat_name = "morality"
-extreme_1 = "Egoistic"
-extreme_2 = "Altruistic"
-value = 0
-
-[sub_resource type="Resource" id="Resource_ci6lb"]
-script = ExtResource("1_f26jw")
-stat_name = "outlook"
-extreme_1 = "Pessimism"
-extreme_2 = "Optimism"
-value = 0
-
-[sub_resource type="Resource" id="Resource_6v3ik"]
-script = ExtResource("1_f26jw")
-stat_name = "sadomasochism"
-extreme_1 = "Sadist"
-extreme_2 = "Masochist"
-value = 0
-
-[sub_resource type="Resource" id="Resource_v1v18"]
-script = ExtResource("1_f26jw")
-stat_name = "sociability"
-extreme_1 = "Introversion"
-extreme_2 = "Extroversion"
-value = 0
-
-[sub_resource type="Resource" id="Resource_mq6q3"]
-script = ExtResource("1_f26jw")
-stat_name = "spirituality"
-extreme_1 = "Heretical"
-extreme_2 = "Religious"
-value = 0
-
-[sub_resource type="Resource" id="Resource_gffct"]
-script = ExtResource("1_f26jw")
-stat_name = "tradition"
-extreme_1 = "Traditional"
-extreme_2 = "Rebellious"
-value = 0
-
-[sub_resource type="Resource" id="Resource_bbu3d"]
-script = ExtResource("1_f26jw")
-stat_name = "trust"
-extreme_1 = "Suspicious"
-extreme_2 = "Gullible"
-value = 0
+[sub_resource type="Resource" id="Resource_bwulb"]
+script = ExtResource("1_kpjfw")
+morality = 0
+independence = 0
+sociability = 0
+outlook = 0
+tradition = 0
+sadomasochism = 0
+commitment = 0
+confidence = 0
+spirituality = 0
+demeanor = 0
+trust = 0
+curiosity = 0
+honesty = 0
+libido = 0
 
 [resource]
 script = ExtResource("1_yg3f3")
@@ -108,20 +26,7 @@ name = "Fay"
 nickname = ""
 race = "Fox Humanoid"
 gender = "Female"
-morality = SubResource("Resource_hh4fx")
-independence = SubResource("Resource_6pf71")
-sociability = SubResource("Resource_v1v18")
-outlook = SubResource("Resource_ci6lb")
-tradition = SubResource("Resource_gffct")
-sadomasochism = SubResource("Resource_6v3ik")
-commitment = SubResource("Resource_levii")
-confidence = SubResource("Resource_1lgv2")
-spirituality = SubResource("Resource_mq6q3")
-demeanor = SubResource("Resource_oufvh")
-trust = SubResource("Resource_bbu3d")
-curiosity = SubResource("Resource_77ceg")
-honesty = SubResource("Resource_q2qv8")
-libido = SubResource("Resource_7awg8")
+personality = SubResource("Resource_bwulb")
 alchemy = 0
 arcane = 0
 bartering = 0
