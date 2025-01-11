@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CharacterSkill" load_steps=2 format=3 uid="uid://cmt867qqpqokb"]
+
+[ext_resource type="Script" path="res://scripts/character_skill.gd" id="1_qyn7i"]
+
+[resource]
+script = ExtResource("1_qyn7i")
+skill_name = "Lockpicking"
+value = 0
+description = "The ability to pick locks. Might be able to open doors or chests. Warning: Stealth is needed for the attempt not to be detected."

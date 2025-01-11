@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CharacterSkill" load_steps=2 format=3 uid="uid://clxe4t5avyflr"]
+
+[ext_resource type="Script" path="res://scripts/character_skill.gd" id="1_ewr7h"]
+
+[resource]
+script = ExtResource("1_ewr7h")
+skill_name = "Alchemy"
+value = 0
+description = "The knowledge on ingredients and how to mix potions with varied effects."
