@@ -18,6 +18,5 @@ func refresh_container():
 	var personality = Globals.companion.list_personality_stats()
 	for stat in personality:
 		var row = personality_stat_row_scene.instantiate()
-		print("personality_stat:", stat)
-		row.initialize_values(stat, personality.get(stat).extreme_1, personality.get(stat).extreme_2, personality.get(stat).value)
+		row.initialize_values(stat, str(stat).capitalize(), "", personality.get(stat))
 		personality_stats_container.add_child(row)
