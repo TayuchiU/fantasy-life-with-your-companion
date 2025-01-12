@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="CharacterSkill" load_steps=2 format=3 uid="uid://bj6lmqlgu5445"]
-
-[ext_resource type="Script" path="res://scripts/character_skill.gd" id="1_nfy6d"]
-
-[resource]
-script = ExtResource("1_nfy6d")
-skill_name = "Stealth"
-value = 0
-description = "The ability to do actions undetected"

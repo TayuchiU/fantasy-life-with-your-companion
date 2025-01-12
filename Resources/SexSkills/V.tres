@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="CharacterSkill" load_steps=2 format=3 uid="uid://crav4ktule6ej"]
-
-[ext_resource type="Script" path="res://scripts/character_skill.gd" id="1_bif3o"]
-
-[resource]
-script = ExtResource("1_bif3o")
-skill_name = "Vaginal"
-value = 0
-description = "The ability to satisfy a partner through your vagina."
