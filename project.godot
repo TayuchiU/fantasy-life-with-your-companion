@@ -23,13 +23,6 @@ addons/rakugo_game_template/first_game_scene_path="res://scenes/Game/game.tscn"
 
 buses/default_bus_layout=""
 
-[autoload]
-
-Globals="*res://scripts/autoloads/globals.gd"
-SceneManager="*res://scripts/autoloads/scene_manager.gd"
-DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
-QuestManager="*res://scripts/autoloads/quest_manager.gd"
-
 [display]
 
 window/size/viewport_width=1280
@@ -39,7 +32,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+enabled=PackedStringArray()
 
 [gui]
 

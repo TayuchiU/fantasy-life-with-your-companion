@@ -75,18 +75,6 @@ signal quirk_lost(quirk)
 			trust = clamp(new_value, -100, 100)
 			personality_changed.emit()
 
-class PersonalityQuirk extends Resource:
-	@export var quirk_name:String
-	@export var requirements:Dictionary
+@export var quirks:Array[Quirk]
 
-@export var possible_quirks:Array[PersonalityQuirk]
-@export var quirks:Array[PersonalityQuirk]
-
-#TODO: WIP function, should check if Personality is eligible for any quirks and add them
-func check_requirements():
-	for quirk in possible_quirks:
-		for requirement in quirk.requirements.keys():
-			if self[requirement] != quirk.requirements[requirement]:
-				return false
-		quirks.append(quirk)
-		
+#TODO: Figure out a way to check for eligible Quirks, and a way to add/remove them.
