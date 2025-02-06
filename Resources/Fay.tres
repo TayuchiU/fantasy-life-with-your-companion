@@ -20,7 +20,6 @@ sociability = 0
 spirituality = 0
 tradition = 0
 trust = 0
-possible_quirks = Array[ExtResource("1_bd1ra")]([])
 quirks = Array[ExtResource("1_bd1ra")]([])
 
 [resource]

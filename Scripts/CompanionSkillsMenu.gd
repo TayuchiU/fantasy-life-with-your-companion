@@ -1,6 +1,6 @@
 extends Control
 
-@onready var character_skill_scene = preload("res://scenes/character_skill_row.tscn")
+@onready var character_skill_scene = preload("res://Scenes/CharacterSkillRow.tscn")
 @export var skills_container : VBoxContainer
 
 func _ready() -> void:

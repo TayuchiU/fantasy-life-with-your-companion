@@ -7,6 +7,6 @@ class_name Quirk extends Resource
 @export var related_quirks:Array[Quirk]
 @export var stat_adjustments:Dictionary
 
-func check_requirements(personality:Personality):
+func check_requiremets(personality:Personality):
 	var _result = false
 	return _result

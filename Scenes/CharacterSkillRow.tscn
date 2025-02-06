@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvvrlb1t8jtx2"]
+
+[ext_resource type="Script" path="res://Scripts/CharacterSkillRow.gd" id="1_2eiis"]
+
+[node name="CharacterSkillRow" type="HBoxContainer"]
+offset_right = 390.0
+offset_bottom = 23.0
+script = ExtResource("1_2eiis")
+
+[node name="FirstLabel" type="Label" parent="."]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "SkillName"
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+value = 10.0
+show_percentage = false
+
+[node name="SecondLabel" type="Label" parent="."]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "SkillLevel"
+horizontal_alignment = 1
