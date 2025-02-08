@@ -34,7 +34,8 @@ func load_quest(file_path):
 
 # Roll a dice for stat check
 func roll_dice(player_stat: int) -> int:
-	return randi() % 20 + 1 + player_stat
+	## Rolls a D20 + player stat
+	return ((randi() % 20) + 1) + player_stat
 
 # Evaluate the result of a roll
 func evaluate_roll(event: Dictionary, player_roll: int) -> Dictionary:
@@ -81,17 +82,17 @@ func advance_quest():
 			#quest done
 			is_complete = true
 		else:
-			process_event(next_req_event["id"], Globals.companion.stats)
+			process_event(next_req_event["id"], Globals.companion.skills)
 	else:
 		current_intermission += 1
 		var event = current_optional_events.pick_random()
 		if event == null:
 			print("Event not found")
 			return
-		process_event(event["id"], Globals.companion.stats)
+		process_event(event["id"], Globals.companion.skills)
 
 
-func process_event(event_id: String, player_stats: Dictionary):
+func process_event(event_id: String, player_skills: Skills):
 	var event = null
 	
 	# Find the event with the given ID
@@ -105,18 +106,22 @@ func process_event(event_id: String, player_stats: Dictionary):
 		return
 	
 	# Perform the roll
-	var player_roll = roll_dice(player_stats["luck"])  # Use luck or a relevant stat
+	var player_roll = roll_dice(player_skills["combat"])  #TODO implement ways to check for the correct skill to roll
+	#TODO Use a base luck variable if no relevant stats are found
 	var result = evaluate_roll(event, player_roll)
 	
 	# Update player stats
 	if result.has("stat_modifiers"):
 		for stat in result["stat_modifiers"]:
-			player_stats[stat] += result["stat_modifiers"][stat]
+			if stat == "gold":
+				Globals.gold += result["stat_modifiers"][stat]
+			else:
+				player_skills[stat] += result["stat_modifiers"][stat]
 	
 	# Update player personality
 	if result.has("personality_modifiers"):
-		for personality in result["personality_modifiers"]:
-			Globals.companion.modify_personality_stat(personality, result["personality_modifiers"][personality])
+		for p in result["personality_modifiers"]:
+			Globals.companion.personality[p] += result["personality_modifiers"][p]
 	
 	# Update game time
 	var duration: int = 0
