@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="Companion" load_steps=5 format=3 uid="uid://c3y61qnsgw2vg"]
+[gd_resource type="Resource" script_class="Companion" load_steps=7 format=3 uid="uid://c3y61qnsgw2vg"]
 
 [ext_resource type="Script" path="res://Scripts/Quirk.gd" id="1_bd1ra"]
 [ext_resource type="Script" path="res://Scripts/Companion.gd" id="1_g73om"]
 [ext_resource type="Script" path="res://Scripts/Personality.gd" id="2_bvayk"]
+[ext_resource type="Script" path="res://Scripts/Skills.gd" id="4_ir7jh"]
 
 [sub_resource type="Resource" id="Resource_xf6j8"]
 script = ExtResource("2_bvayk")
@@ -22,12 +23,34 @@ tradition = 0
 trust = 0
 quirks = Array[ExtResource("1_bd1ra")]([])
 
+[sub_resource type="Resource" id="Resource_rfhwf"]
+script = ExtResource("4_ir7jh")
+alchemy = 0
+arcane = 0
+bartering = 0
+carpentry = 0
+combat = 0
+cooking = 0
+diplomacy = 0
+intimidation = 0
+literacy = 0
+lore = 0
+medicine = 0
+music = 0
+painting = 0
+smithing = 0
+skullduggery = 0
+stealth = 0
+survival = 0
+gold = 0
+
 [resource]
 script = ExtResource("1_g73om")
 name = "Fay"
 nickname = ""
 race = "Fox Humanoid"
-gender = "Male"
+gender = "Female"
 personality = SubResource("Resource_xf6j8")
+skills = SubResource("Resource_rfhwf")
 background = ""
 available_backgrounds = Array[String]([])
