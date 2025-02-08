@@ -36,7 +36,7 @@ Outfits are not implemented yet...
 - Send to work
 	{{Globals.player}}: Are you going to go on a quest?
 	{{Globals.companion.name}}: Yes, sir!
-	do QuestManager.load_quest("res://mods/quests/lost_relic.json")
+	do QuestManager.load_quest("res://Mods/Quests/LostRelic.json")
 	
 => END
 
