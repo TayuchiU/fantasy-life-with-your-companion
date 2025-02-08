@@ -102,4 +102,4 @@ signal skills_changed
 	set(new_value):
 		if new_value != survival:
 			survival = clamp(new_value, 0, 100)
-			skills_changed
+			skills_changed.emit()
