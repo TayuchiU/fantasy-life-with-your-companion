@@ -3,6 +3,7 @@ extends Node
 
 var companion: Companion
 var player: String
+var gold: int
 var calendar: Calendar
 var adventure_log: String
 
