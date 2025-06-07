@@ -1,15 +1,15 @@
 [gd_scene load_steps=6 format=3 uid="uid://jvmv3nm8hjkh"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_pwngv"]
-[ext_resource type="Texture2D" uid="uid://ck83d7civu831" path="res://Assets/Backgrounds/Bedroom.png" id="2_kvxgn"]
+[ext_resource type="Texture2D" uid="uid://dlhmx31c0i70v" path="res://Assets/Locations/Bedroom.png" id="2_kvxgn"]
 [ext_resource type="PackedScene" uid="uid://dvq0dxglota1w" path="res://Scenes/UI.tscn" id="2_n5mr5"]
 [ext_resource type="PackedScene" uid="uid://csptsm2iey6dy" path="res://Scenes/Character.tscn" id="4_q1eti"]
 [ext_resource type="PackedScene" uid="uid://dw37wr0j4sbop" path="res://Scenes/AdventureLogPanel.tscn" id="5_dedvo"]
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("ui", "background")]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("ui", "location")]
 script = ExtResource("1_pwngv")
 ui = NodePath("CanvasLayer/UI")
-background = NodePath("Background")
+location = NodePath("Location")
 
 [node name="Black" type="ColorRect" parent="."]
 offset_left = -14.0
@@ -19,7 +19,7 @@ offset_bottom = 671.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Location" type="Sprite2D" parent="."]
 position = Vector2(574.625, 324)
 scale = Vector2(0.601746, 0.601852)
 texture = ExtResource("2_kvxgn")

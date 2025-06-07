@@ -42,7 +42,6 @@ smithing = 0
 skullduggery = 0
 stealth = 0
 survival = 0
-gold = 0
 
 [resource]
 script = ExtResource("1_g73om")
@@ -52,5 +51,4 @@ race = "Fox Humanoid"
 gender = "Female"
 personality = SubResource("Resource_xf6j8")
 skills = SubResource("Resource_rfhwf")
-background = ""
 available_backgrounds = Array[String]([])

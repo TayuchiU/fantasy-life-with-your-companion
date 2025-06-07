@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Background" load_steps=3 format=3 uid="uid://dljoe876j8wcr"]
+
+[ext_resource type="Script" path="res://Scripts/Quirk.gd" id="1_0mxla"]
+[ext_resource type="Script" path="res://Scripts/Background.gd" id="2_6vidr"]
+
+[resource]
+script = ExtResource("2_6vidr")
+background_type = 1
+wealth_status = 80
+street_wise = 20
+education_level = 7
+conflict_exposure = 25
+magical_affinity = 0
+social_status = 50
+background_traits = Array[ExtResource("1_0mxla")]([])
+description = "Born into the bustling world of trade, you learned early that value isn't just in goods, but in connections. Whether from a family of seasoned traders or a self-made path through sheer grit, your life has been a constant negotiation of prices, pacts, and possibilities. You understand the ebb and flow of supply and demand, the subtle art of persuasion, and the quiet ruthlessness needed to close a deal. You've seen prosperity and scarcity, and you know how to navigate both. Your hands might be clean, but your mind is sharp, always calculating the next advantageous exchange."

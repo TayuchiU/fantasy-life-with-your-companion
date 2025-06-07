@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Character.gd" id="1_e43gs"]
 [ext_resource type="Shader" path="res://shaders/Highlight.gdshader" id="2_ls5r3"]
-[ext_resource type="Texture2D" uid="uid://co4fb18if88g4" path="res://Assets/Characters/Fay/UBase.png" id="2_w0l2f"]
+[ext_resource type="Texture2D" uid="uid://cu81x6hc7unaq" path="res://Assets/Characters/Fay/UBase.png" id="2_w0l2f"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aiwph"]
 shader = ExtResource("2_ls5r3")

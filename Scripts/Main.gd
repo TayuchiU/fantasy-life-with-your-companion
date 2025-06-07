@@ -3,14 +3,14 @@ class_name Main
 
 @export var ui : Control
 
-@export var background: Sprite2D
+@export var location: Sprite2D
 
 func _ready() -> void:
 	SceneManager.load_scenes_from_folder("mods")
 	SceneManager.load_scene("Bedroom")
 	var scene_data = SceneManager.get_current_scene_data()
-	var bg = scene_data.get("background")
-	change_background(bg)
+	var scene_location = scene_data.get("location")
+	load_location(scene_location)
 	
 	show_ui()
 
@@ -22,8 +22,8 @@ func show_ui() -> void:
 func hide_ui() -> void:
 	ui.visible = false
 
-func change_background(new_bg : String) -> void:
-	background.texture = load(new_bg)
+func load_location(newLoc : String) -> void:
+	location.texture = load(newLoc)
 
 
 func _on_wardrobe_gui_input(event: InputEvent) -> void:

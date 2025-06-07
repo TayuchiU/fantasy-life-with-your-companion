@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Background" load_steps=3 format=3 uid="uid://c34anyyoxvry5"]
+
+[ext_resource type="Script" path="res://Scripts/Quirk.gd" id="1_iirrt"]
+[ext_resource type="Script" path="res://Scripts/Background.gd" id="2_2mm0d"]
+
+[resource]
+script = ExtResource("2_2mm0d")
+background_type = 6
+wealth_status = -80
+street_wise = 50
+education_level = 1
+conflict_exposure = 50
+magical_affinity = 30
+social_status = -30
+background_traits = Array[ExtResource("1_iirrt")]([])
+description = "Your life is not your own, at least not entirely. Whether it's a debt inherited from your family, a desperate gamble gone wrong, or a cruel twist of fate, you owe someone, or something, a significant sum. This burden casts a long shadow over every decision, pushing you to take risks you otherwise wouldn't and forcing you into situations you'd rather avoid. You've learned humility, resourcefulness, and perhaps a touch of desperation. Every coin is precious, every opportunity a potential escape, or a deeper trap. Freedom isn't a given; it's a goal you're constantly striving for."

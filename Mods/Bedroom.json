@@ -1,15 +1,15 @@
 {
 	"scene_name": "Bedroom",
-	"background": "res://assets/backgrounds/bedroom.png",
+	"location": "res://Assets/Locations/Bedroom.png",
 	"characters": [
 		{
 			"name": "Player",
-			"sprite": "res://assets/characters/player_idle.png",
+			"sprite": "res://Assets/Characters/PlayerIdle.png",
 			"position": [100, 200]
 		},
 		{
 			"name": "Pet",
-			"sprite": "res://assets/characters/pet.png",
+			"sprite": "res://Assets/Characters/Pet.png",
 			"position": [300, 400]
 		}
 	],
