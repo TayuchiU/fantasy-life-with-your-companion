@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="CharacterSkill" load_steps=2 format=3 uid="uid://b4pg5aoqdx8bc"]
-
-[ext_resource type="Script" path="res://scripts/character_skill.gd" id="1_jq2bj"]
-
-[resource]
-script = ExtResource("1_jq2bj")
-skill_name = "Healing"
-value = 0
-description = "The ability to apply first aid, the best practices on how to cure wounds."

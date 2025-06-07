@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Character" load_steps=4 format=3 uid="uid://ckijgil5ag607"]
+
+[ext_resource type="Script" path="res://Scripts/Background.gd" id="1_51lj7"]
+[ext_resource type="Script" path="res://Scripts/Character.gd" id="2_5hgjx"]
+
+[sub_resource type="Resource" id="Resource_xhmk2"]
+script = ExtResource("1_51lj7")
+display_name = ""
+description = ""
+initial_money_bonus = 0
+initial_skill_modifiers = {}
+
+[resource]
+script = ExtResource("2_5hgjx")
+character_name = ""
+age = 0
+background = SubResource("Resource_xhmk2")
+available_backgrounds = Array[ExtResource("1_51lj7")]([])
+money = 0

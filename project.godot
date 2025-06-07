@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="FLWF"
-config/version="0.0.0"
+config/name="Fantasy Life with Your Companion"
+config/version="Prototype"
 run/main_scene="res://scenes/Bootstrap/bootstrap.tscn"
 config/features=PackedStringArray("4.3")
 config/icon="res://icon.svg"
@@ -21,19 +21,7 @@ addons/rakugo_game_template/first_game_scene_path="res://scenes/Game/game.tscn"
 
 [autoload]
 
-AppSettings="*res://addons/rakugo_game_template/Autoloads/AppSettings.gd"
-SceneLoader="*res://addons/rakugo_game_template/Autoloads/SceneLoader.gd"
-ProjectMusicController="*res://addons/rakugo_game_template/Autoloads/ProjectMusicController.tscn"
-UISoundManager="*res://addons/rakugo_game_template/Autoloads/UISoundManager/UISoundManager.tscn"
-Transitions="*res://addons/rakugo_game_template/Autoloads/Transitions/transitions.tscn"
-GameValues="*res://scripts/autoloads/game_values.gd"
-CompanionValues="*res://scripts/autoloads/companion_values.gd"
-SceneManager="*res://scripts/autoloads/scene_manager.gd"
-State="*res://scripts/autoloads/state.gd"
-DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
-QuestManager="*res://scripts/autoloads/quest_manager.gd"
-GameFunctions="*res://scripts/autoloads/game_functions.gd"
-Calendar="*res://scripts/autoloads/calendar.gd"
+Utils="*res://Scripts/Singletons/Utils.gd"
 
 [display]
 
@@ -44,7 +32,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/rakugo_game_template/plugin.cfg")
+enabled=PackedStringArray()
 
 [gui]
 
