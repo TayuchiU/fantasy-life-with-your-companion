@@ -9,7 +9,7 @@ signal item_removed(item)
 signal size_changed(size)
 
 @export_group("Equipment")
-#Equipment
+# Equipment
 @export var head:Equipment
 @export var face:Equipment
 @export var neck:Equipment
@@ -34,11 +34,11 @@ var equipment:Array:
 	get:
 		return [head, face, neck, shoulders, back, underlayer, torsowear, outerlayer, arms, r_wrist, l_wrist, hands, waist, undergarment, r_leg, l_leg, feet, r_held, l_held]
 
-#Inventory Space
+# Inventory Space
 @export var backpack:Array:
 	set(value):
 		if value.size() > size:
-			#Safety to avoid increasing Array size beyond current inventory size.
+			# Safety to avoid increasing Array size beyond current inventory size.
 			return
 		backpack = value
 		inventory_changed.emit(backpack)

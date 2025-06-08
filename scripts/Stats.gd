@@ -48,14 +48,29 @@ enum GUILE_THRESHOLD {
 	PUPPETEER
 }
 
-signal stat_changed(stat, value)
-signal threshold_changed(stat, threshold)
+signal stat_changed(stat:String, value:int)
+signal threshold_changed(stat:String, threshold)
 
-@export_range(0, 100) var might:int #Strength, Endurance
-@export_range(0, 100) var finesse:int #Agility, Reflexes
-@export_range(0, 100) var resolve:int #Willpower, Grit
-@export_range(0, 100) var acumen:int #Intellect, Knowledge
-@export_range(0, 100) var guile:int #Charisma, Beauty
+@export_range(0, 100) var might:int: # Strength, Endurance
+	set(new_might):
+		might = clamp(new_might, 0, 100)
+		stat_changed.emit("might", might)
+@export_range(0, 100) var finesse:int: # Agility, Reflexes
+	set(new_finesse):
+		finesse = clamp(new_finesse, 0, 100)
+		stat_changed.emit("finesse", finesse)
+@export_range(0, 100) var resolve:int: # Willpower, Grit
+	set(new_resolve):
+		resolve = clamp(new_resolve, 0, 100)
+		stat_changed.emit("resolve", resolve)
+@export_range(0, 100) var acumen:int: # Intellect, Knowledge
+	set(new_acumen):
+		acumen = clamp(new_acumen, 0, 100)
+		stat_changed.emit("acumen", acumen)
+@export_range(0, 100) var guile:int: # Charisma, Beauty
+	set(new_guile):
+		guile = clamp(new_guile, 0, 100)
+		stat_changed.emit("guile", guile)
 
 var might_threshold:MIGHT_THRESHOLD
 var finesse_threshold:FINESSE_THRESHOLD
@@ -63,7 +78,7 @@ var resolve_threshold:RESOLVE_THRESHOLD
 var acumen_threshold:ACUMEN_THRESHOLD
 var guile_threshold:GUILE_THRESHOLD
 
-# Helper function to get the threshold for a given stat value and type
+#  Helper function to get the threshold for a given stat value and type
 static func _get_threshold_for_value(stat_type: STAT, value: int):
 	match stat_type:
 		STAT.MIGHT:
@@ -96,12 +111,12 @@ static func _get_threshold_for_value(stat_type: STAT, value: int):
 			if value >= 40: return GUILE_THRESHOLD.BEGUILING
 			if value >= 20: return GUILE_THRESHOLD.PERSUASIVE
 			return GUILE_THRESHOLD.GUILELESS
-	return null # Should not happen if stat_type is valid
+	return null #  Should not happen if stat_type is valid
 
 func change_stat(stat:STAT, value:int) -> void:
 	var current_value: int
 	var old_threshold
-	# Apply the change and get current value & old threshold
+	#  Apply the change and get current value & old threshold
 	match stat:
 		STAT.MIGHT:
 			old_threshold = might_threshold
@@ -126,9 +141,9 @@ func change_stat(stat:STAT, value:int) -> void:
 		_:
 			printerr("Invalid stat type passed to change_stat: ", stat)
 			return
-	# Determine the new threshold
+	#  Determine the new threshold
 	var new_threshold = _get_threshold_for_value(stat, current_value)
-	# Update the specific threshold variable if it has changed
+	#  Update the specific threshold variable if it has changed
 	if new_threshold != old_threshold:
 		match stat:
 			STAT.MIGHT: might_threshold = new_threshold
@@ -137,4 +152,4 @@ func change_stat(stat:STAT, value:int) -> void:
 			STAT.ACUMEN: acumen_threshold = new_threshold
 			STAT.GUILE: guile_threshold = new_threshold
 		threshold_changed.emit(stat, new_threshold)
-	stat_changed.emit(stat, current_value) # Emit with the new value of the stat
+	stat_changed.emit(stat, current_value) #  Emit with the new value of the stat

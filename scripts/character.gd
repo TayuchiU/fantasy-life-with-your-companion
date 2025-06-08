@@ -2,9 +2,10 @@ class_name Character extends Resource
 
 signal name_changed(name)
 signal age_changed(age)
-signal inventory_changed(slot, item)
-signal stat_changed(stat, value)
-signal skill_changed(skill, value)
+signal additional_backgrounds_changed(character:Character, backgrounds:Array[Background])
+signal inventory_changed(character:Character, inventory:Inventory)
+signal stats_changed(character:Character, stats:Stats)
+signal skills_changed(skill, value)
 signal money_changed(money)
 
 @export var character_name:String:
@@ -15,23 +16,32 @@ signal money_changed(money)
 		character_name = Utils.sanitize_string(new_name)
 		name_changed.emit(character_name)
 
-## TODO: Consider the use for the age system.
-## Is it even worth tracking? How fast will time pass?
+##  TODO: Consider the use for the age system.
+##  Is it even worth tracking? How fast will time pass?
 @export var age:int:
 	set(new_age):
 		if new_age <= 0:
 			printerr("Attempted to set age to an unsupported value:")
-		#In an unlikely event that the age goes beyond 100, there's no point in tracking it beyond that.
+		# In an unlikely event that the age goes beyond 100, there's no point in tracking it beyond that.
 		age = clamp(new_age, 0, 100)
 		age_changed.emit(self, age)
 
-# TODO: Implement classes and uncomment.
+#  TODO: Implement classes and uncomment.
 @export var background:Background
-@export var available_backgrounds:Array[Background]
-@export var stats:Stats
-# @export var skills:Skills
+@export var additional_backgrounds:Array[Background]:
+	set(new_backgrounds):
+		additional_backgrounds = new_backgrounds
+		additional_backgrounds_changed.emit(self, additional_backgrounds)
+@export var stats:Stats:
+	set(new_stats):
+		stats = new_stats
+		stats_changed.emit(self, stats)
 
-@export var inventory:Inventory
+#@export var skills:Skills
+@export var inventory:Inventory:
+	set(new_inventory):
+		inventory = new_inventory
+		inventory_changed.emit(self, inventory)
 
 @export var money:int:
 	set(new_money):
