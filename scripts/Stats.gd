@@ -1,51 +1,51 @@
 class_name Stats extends Resource
 
 enum STAT {
-    MIGHT,
-    FINESSE,
-    RESOLVE,
-    ACUMEN,
-    GUILE
+	MIGHT,
+	FINESSE,
+	RESOLVE,
+	ACUMEN,
+	GUILE
 }
 
 enum MIGHT_THRESHOLD {
-    FRAIL,
-    STURDY,
-    VIGOROUS,
-    INDOMITABLE,
-    TITAN
+	FRAIL,
+	STURDY,
+	VIGOROUS,
+	INDOMITABLE,
+	TITAN
 }
 
 enum FINESSE_THRESHOLD {
-    CLUMSY,
-    NIMBLE,
-    GRACEFUL,
-    UNTOUCHABLE,
-    PHANTASM
+	CLUMSY,
+	NIMBLE,
+	GRACEFUL,
+	UNTOUCHABLE,
+	PHANTASM
 }
 
 enum RESOLVE_THRESHOLD {
-    WAVERING,
-    STEADFAST,
-    UNFLINCHING,
-    ADAMANT,
-    SANCTIFIED
+	WAVERING,
+	STEADFAST,
+	UNFLINCHING,
+	ADAMANT,
+	SANCTIFIED
 }
 
 enum ACUMEN_THRESHOLD {
-    OBLIVIOUS,
-    ASTUTE,
-    BRILLIANT,
-    OMNISCIENT,
-    ORACLE
+	OBLIVIOUS,
+	ASTUTE,
+	BRILLIANT,
+	OMNISCIENT,
+	ORACLE
 }
 
 enum GUILE_THRESHOLD {
-    GUILELESS,
-    PERSUASIVE,
-    BEGUILING,
-    INESCAPABLE,
-    PUPPETEER
+	GUILELESS,
+	PERSUASIVE,
+	BEGUILING,
+	INESCAPABLE,
+	PUPPETEER
 }
 
 signal stat_changed(stat, value)
@@ -126,10 +126,8 @@ func change_stat(stat:STAT, value:int) -> void:
 		_:
 			printerr("Invalid stat type passed to change_stat: ", stat)
 			return
-
 	# Determine the new threshold
 	var new_threshold = _get_threshold_for_value(stat, current_value)
-
 	# Update the specific threshold variable if it has changed
 	if new_threshold != old_threshold:
 		match stat:
@@ -139,6 +137,4 @@ func change_stat(stat:STAT, value:int) -> void:
 			STAT.ACUMEN: acumen_threshold = new_threshold
 			STAT.GUILE: guile_threshold = new_threshold
 		threshold_changed.emit(stat, new_threshold)
-
 	stat_changed.emit(stat, current_value) # Emit with the new value of the stat
-    
